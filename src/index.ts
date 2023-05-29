@@ -1,9 +1,7 @@
-import { Env } from './global';
+import { Hono } from 'hono';
 
-export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-    console.log(env);
+const app = new Hono();
 
-    return new Response('Hello World!');
-  },
-};
+app.get('/', (c) => c.text('Hello Hono!'));
+
+export default app;
