@@ -1,0 +1,8 @@
+name = "gotohitori"
+main = "src/index.ts"
+compatibility_date = "2023-05-29"
+usage_model = "bundled"
+env = { }
+
+[triggers]
+crons = [ ]
