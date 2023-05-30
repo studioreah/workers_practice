@@ -2,7 +2,7 @@
 
 ### ダッシュボード
 
-https://dub.sh/dZcJ3aO
+https://dash.cloudflare.com/f0b6594800de7689a0a7eb90d29c0cb2/workers/services/view/gotohitori/production
 
 好きに弄って大丈夫です
 
