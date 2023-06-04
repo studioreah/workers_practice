@@ -7,58 +7,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Circle {
-  id           String   @id @unique @default(cuid())
-  name         String
-  avatarUri    String?
-  createdAt    DateTime @default(now()) @db.Timestamptz(6)
-  updatedAt    DateTime @default(now()) @db.Timestamptz(6)
-  introduction String?
-  homepageUrl  String?
-  youtubeUrl   String?
-  slugId       String   @unique @default(cuid())
-  users        User[]
+model Log {
+  id      String @id @unique @default(cuid())
+  level   Level
+  message String
+  meta    Json
 }
 
-model Post {
-  id        String   @id @unique @default(cuid())
-  content   String
-  createdAt DateTime @db.Timestamptz(6)
-  updatedAt DateTime @db.Timestamptz(6)
-  likes     Int?     @default(0)
-}
-
-model TestArticle {
-  id        String   @id @unique @default(cuid())
-  title     String
-  content   String
-  createdAt DateTime @default(now()) @db.Timestamptz(6)
-  updatedAt DateTime @default(now()) @db.Timestamptz(6)
-  category  String?
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], onUpdate: Restrict)
-}
-
-model Track {
-  id        String   @id @unique @default(cuid())
-  title     String
-  createdAt DateTime @default(now()) @db.Timestamptz(6)
-  updatedAt DateTime @default(now()) @db.Timestamptz(6)
-}
-
-model User {
-  id                  String        @id @unique
-  accountId           String        @unique
-  name                String
-  createdAt           DateTime      @default(now()) @db.Timestamptz(6)
-  updatedAt           DateTime      @default(now()) @db.Timestamptz(6)
-  avatarUri           String?
-  introduction        String?
-  twitterUrl          String?
-  email               String?       @unique
-  isDeactivated       Boolean       @default(false)
-  registrationToken   String?
-  isProfileRegistered Boolean       @default(false)
-  testArticles        TestArticle[]
-  circles             Circle[]
+enum Level {
+  Info
+  Warn
+  Error
 }

@@ -6,3 +6,6 @@ env = { }
 
 [triggers]
 crons = [ ]
+
+[vars]
+DATABASE_URL = "prisma://aws-us-east-1.prisma-data.com/?api_key=BT1CmXTDEWU334ntJFgT5pinbfTT32N9mf-_rJD2p2zm42Oi-Ugj4P7tTtN-3OOq"
